@@ -1,16 +1,10 @@
 # Zigi's Calender Availability
 
-***
-
 ## The goal of this project is to get a list of people, and the meetings each of them has, and return a list of available times they can all meet.
 
-***
-
 ### I've decided to take some assumptions when addressing this task:
-### 1. The data received is formatted correctly.
+### 1. The data received is formatted correctly and in the right order.
 ### 2. The time and dates of the data received are all UTC
-### 3. Meetings don't end after midnight
-### 4. If one person has a meeting (or several) on a certain date, but no one else, that day is open for scheduling meetings
 
 ***
 

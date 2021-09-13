@@ -1,14 +1,13 @@
-from typing import List, Tuple
+from typing import List
 import itertools
 
 
 class Utilities:
     @staticmethod
-    def range_diff(range1: Tuple[int, int], range2: Tuple[int, int]) -> List[Tuple[int, int]]:
+    def range_diff(range1: tuple, range2: tuple) -> List[tuple]:
         """
-        A method that takes 2 tuples of integers that represent a range, and return all the ranges that are that are
-        part of the first tuple and not in the second tuple.
-
+        A method that takes 2 tuples of comparables that represent a range, and return all the ranges that are part of
+        the first tuple and not in the second tuple.
         """
         start1, end1 = range1
         start2, end2 = range2
@@ -21,12 +20,10 @@ class Utilities:
         return result
 
     @staticmethod
-    def multi_range_diff(range1_list: List[Tuple[int, int]],
-                         range2_list: List[Tuple[int, int]]) -> List[Tuple[int, int]]:
+    def multi_range_diff(range1_list: List[tuple], range2_list: List[tuple]) -> List[tuple]:
         """
-        A method that takes 2 lists with tuples of integers that represent ranges, and return all the ranges that are
+        A method that takes 2 lists with tuples of comparables that represent ranges, and return all the ranges that are
         part of the first list and not in the second one.
-
         """
         for range2 in range2_list:
             range1_list = list(

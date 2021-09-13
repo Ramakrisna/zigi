@@ -55,7 +55,7 @@ class TestSum(unittest.TestCase):
                                                                                        (1615364139, 1615370139),
                                                                                        (1615371339, 1615373739),
                                                                                        (1615374939, 1615380939)]}
-        self.assertEqual(self.meeting_coordinator.all_meetings_in_timestamps, result)
+        self.assertEqual(self.meeting_coordinator.all_meetings, result)
 
     def test_calculate_availability_times(self):
         result = [
