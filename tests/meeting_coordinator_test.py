@@ -49,21 +49,28 @@ class TestSum(unittest.TestCase):
     meeting_coordinator = MeetingCoordinator(sample_data)
 
     def test_get_all_meetings(self):
-        result = {datetime.datetime(2021, 3, 10, 0, 0, tzinfo=datetime.timezone.utc): [(1615366539, 1615367739),
-                                                                                       (1615370139, 1615371339),
-                                                                                       (1615377339, 1615378539),
-                                                                                       (1615364139, 1615370139),
-                                                                                       (1615371339, 1615373739),
-                                                                                       (1615374939, 1615380939)]}
+        result = [(datetime.datetime(2021, 3, 10, 8, 55, 38, tzinfo=datetime.timezone.utc),
+                   datetime.datetime(2021, 3, 10, 9, 15, 40, tzinfo=datetime.timezone.utc)), (
+                      datetime.datetime(2021, 3, 10, 9, 55, 38, tzinfo=datetime.timezone.utc),
+                      datetime.datetime(2021, 3, 10, 10, 15, 40, tzinfo=datetime.timezone.utc)), (
+                      datetime.datetime(2021, 3, 10, 11, 55, 38, tzinfo=datetime.timezone.utc),
+                      datetime.datetime(2021, 3, 10, 12, 15, 40, tzinfo=datetime.timezone.utc)), (
+                      datetime.datetime(2021, 3, 10, 8, 15, 38, tzinfo=datetime.timezone.utc),
+                      datetime.datetime(2021, 3, 10, 9, 55, 40, tzinfo=datetime.timezone.utc)), (
+                      datetime.datetime(2021, 3, 10, 10, 15, 38, tzinfo=datetime.timezone.utc),
+                      datetime.datetime(2021, 3, 10, 10, 55, 40, tzinfo=datetime.timezone.utc)), (
+                      datetime.datetime(2021, 3, 10, 11, 15, 38, tzinfo=datetime.timezone.utc),
+                      datetime.datetime(2021, 3, 10, 12, 55, 40, tzinfo=datetime.timezone.utc))]
+
         self.assertEqual(self.meeting_coordinator.all_meetings, result)
 
     def test_calculate_availability_times(self):
-        result = [
-            {'startTime': datetime.datetime(2021, 3, 10, 0, 0), 'endTime': datetime.datetime(2021, 3, 10, 8, 15, 39)},
-            {'startTime': datetime.datetime(2021, 3, 10, 10, 55, 39),
-             'endTime': datetime.datetime(2021, 3, 10, 11, 15, 39)},
-            {'startTime': datetime.datetime(2021, 3, 10, 12, 55, 39),
-             'endTime': datetime.datetime(2021, 3, 10, 23, 59, 59)}]
+        result = [{'endTime': datetime.datetime(2021, 3, 10, 8, 15, 38, tzinfo=datetime.timezone.utc),
+                   'startTime': datetime.datetime(2021, 3, 10, 0, 0, tzinfo=datetime.timezone.utc)},
+                  {'endTime': datetime.datetime(2021, 3, 10, 11, 15, 38, tzinfo=datetime.timezone.utc),
+                   'startTime': datetime.datetime(2021, 3, 10, 10, 55, 40, tzinfo=datetime.timezone.utc)},
+                  {'endTime': datetime.datetime(2021, 3, 10, 23, 59, 59, tzinfo=datetime.timezone.utc),
+                   'startTime': datetime.datetime(2021, 3, 10, 12, 55, 40, tzinfo=datetime.timezone.utc)}]
         self.assertEqual(self.meeting_coordinator.available_times, result)
 
 

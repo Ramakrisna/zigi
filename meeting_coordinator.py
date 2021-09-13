@@ -41,8 +41,6 @@ class MeetingCoordinator:
         This method goes over each date in the 'all_meetings' list, subtracts all the meeting times and then inputs it
         into the 'available_times' argument.
         """
-        ranges = Utilities.multi_range_diff([(self.starting_day, self.ending_day)],
-                                            self.all_meetings)
-        self.available_times = [{'startTime': datetime.utcfromtimestamp(meeting_availability[0]),
-                                 'endTime': datetime.utcfromtimestamp(meeting_availability[1])} for
+        ranges = Utilities.multi_range_diff([(self.starting_day, self.ending_day)], self.all_meetings)
+        self.available_times = [{'startTime': meeting_availability[0], 'endTime': meeting_availability[1]} for
                                 meeting_availability in ranges]
